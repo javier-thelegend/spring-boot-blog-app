@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -20,7 +21,7 @@ public class CommentController {
 
     //Create Comment Post API
     @PostMapping("/{postId}/comments")
-    public ResponseEntity<CommentDto> createComment(@PathVariable(value = "postId") long postId, @RequestBody CommentDto commentDto) {
+    public ResponseEntity<CommentDto> createComment(@PathVariable(value = "postId") long postId, @Valid @RequestBody CommentDto commentDto) {
         return new ResponseEntity<>(commentService.createComment(postId, commentDto), HttpStatus.CREATED);
     }
 
@@ -38,8 +39,8 @@ public class CommentController {
 
     //Update Comment by Id and Post Id
     @PutMapping("/{postId}/comments/{id}")
-    public ResponseEntity<CommentDto> findCommentById(@PathVariable(value = "postId") long postId, @PathVariable(value = "id") long commentId,
-                                                      @RequestBody CommentDto commentDto) {
+    public ResponseEntity<CommentDto> updateCommentById(@PathVariable(value = "postId") long postId, @PathVariable(value = "id") long commentId,
+                                                        @Valid @RequestBody CommentDto commentDto) {
         return new ResponseEntity<>(commentService.updateCommment(postId, commentId, commentDto), HttpStatus.OK);
     }
 
