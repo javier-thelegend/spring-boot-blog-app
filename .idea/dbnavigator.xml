@@ -29,7 +29,9 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="24c87605-cdde-4818-9193-b042087ac716">
-      <console name="PostgreSQL Connection" type="STANDARD" schema="public" session="Main"><![CDATA[select * from "comments";]]></console>
+      <console name="PostgreSQL Connection" type="STANDARD" schema="public" session="Main"><![CDATA[select * from users;
+select * from roles;
+select * from user_roles;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
@@ -37,6 +39,19 @@
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="24c87605-cdde-4818-9193-b042087ac716" />
+  </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="24c87605-cdde-4818-9193-b042087ac716" dataset="public.users" active-filter-id="EMPTY_FILTER">
+      <filter id="75bc290c-8386-41a2-809c-578e2f52efcc" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="id" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
+    <filter-actions connection-id="24c87605-cdde-4818-9193-b042087ac716" dataset="public.user_roles" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="24c87605-cdde-4818-9193-b042087ac716" dataset="public.roles" active-filter-id="">
+      <filter id="37056d66-2ff2-4868-8df7-23d47f74cb78" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="id" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -109,7 +124,7 @@
           <session-management value="true" />
           <ddl-file-binding value="true" />
           <database-logging value="true" />
-          <connect-automatically value="true" />
+          <connect-automatically value="false" />
           <restore-workspace value="true" />
           <restore-workspace-deep value="false" />
           <environment-type value="default" />
